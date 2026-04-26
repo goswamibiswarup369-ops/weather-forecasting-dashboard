@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stratus — Weather Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <div class="loading-txt">fetching atmosphere data…</div>
+  </div>
+
+  <div class="app">
+
+    <header>
+      <div>
+        <div class="logo">Str<span>a</span>tus</div>
+        <div class="tagline">Weather Intelligence Dashboard</div>
+      </div>
+      <div class="search-wrap">
+        <input class="search-input" id="searchInput" type="text" placeholder="Search city… (e.g. Tokyo)" autocomplete="off" />
+        <button class="search-btn" id="searchBtn">Search</button>
+      </div>
+    </header>
+
+    <div class="setup-banner" id="setupBanner">
+      <div class="icon">🔑</div>
+      <div>
+        <p>Enter your <strong>OpenWeatherMap API key</strong> to get live weather data.
+          Get a free key at <a href="https://openweathermap.org/api" target="_blank">openweathermap.org</a>.
+          Your key is saved in Local Storage.</p>
+        <div class="key-input-row">
+          <input class="key-input" id="apiKeyInput" type="password" placeholder="Paste API key here…" />
+          <button class="key-save-btn" id="saveKeyBtn">Save Key</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-bar" id="msgBar"></div>
+
+    <div class="controls-row">
+      <div class="units-toggle">
+        <button class="unit-btn active" id="btnMetric">°C / m/s</button>
+        <button class="unit-btn" id="btnImperial">°F / mph</button>
+      </div>
+      <button class="geo-btn" id="geoBtn">📍 Use My Location</button>
+    </div>
+
+    <div class="favorites-wrap">
+      <div class="section-title">Saved Cities</div>
+      <div class="favorites-chips" id="favChips"></div>
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      <div class="big-icon">🌤</div>
+      <h2>Search for any city</h2>
+      <p>Enter a city name above to see live weather data,<br />5-day forecast, and atmospheric conditions.</p>
+    </div>
+
+    <div class="weather-main" id="weatherMain">
+
+      <div class="hero-card">
+        <div>
+          <div class="city-name" id="cityName">—</div>
+          <div class="country-code" id="countryCode">—</div>
+          <div class="weather-desc" id="weatherDesc">—</div>
+          <div class="local-time" id="localTime">—</div>
+        </div>
+        <div class="temp-block">
+          <span class="weather-icon-main" id="weatherIconMain">—</span>
+          <div class="temp-main"><span id="tempVal">—</span><span class="temp-unit" id="tempUnit">°C</span></div>
+          <div class="temp-feels" id="tempFeels">—</div>
+        </div>
+      </div>
+
+      <div class="stats-strip">
+        <div class="stat-card">
+          <div class="stat-label">Humidity <span class="stat-icon">💧</span></div>
+          <div class="stat-val"><span id="humVal">—</span><span class="stat-unit">%</span></div>
+          <div class="humidity-bar-wrap">
+            <div class="humidity-bar-bg"><div class="humidity-bar-fill" id="humBar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Wind <span class="stat-icon">💨</span></div>
+          <div class="stat-val"><span id="windVal">—</span><span class="stat-unit" id="windUnit">m/s</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pressure <span class="stat-icon">🌡</span></div>
+          <div class="stat-val"><span id="pressVal">—</span><span class="stat-unit">hPa</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Visibility <span class="stat-icon">👁</span></div>
+          <div class="stat-val"><span id="visVal">—</span><span class="stat-unit">km</span></div>
+        </div>
+      </div>
+
+      <div class="section-title">5-Day Forecast</div>
+      <div class="forecast-grid" id="forecastGrid"></div>
+
+    </div>
+
+    <footer>Stratus · Data by OpenWeatherMap · Preferences saved to Local Storage</footer>
+
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
