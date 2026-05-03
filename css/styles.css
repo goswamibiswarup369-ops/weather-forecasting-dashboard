@@ -8,7 +8,7 @@
   --rain:          #7db3e8;
   --text-bright:   #f0f5ff;
   --text-mid:      #a8bdd8;
-  --text-dim:      #5a7a9e;
+  --text-dim:      #4f76a3;
   --glass:         rgba(255, 255, 255, 0.06);
   --glass-border:  rgba(255, 255, 255, 0.12);
   --glass-hover:   rgba(255, 255, 255, 0.10);
@@ -511,4 +511,10 @@ footer {
 @media (max-width: 480px) {
   .forecast-grid                  { grid-template-columns: repeat(2, 1fr); }
   .forecast-card:last-child       { display: none; }
+}
+
+footer::after {
+  content: ' | Code by Biswarup Goswami';
+  font-weight: 600;
+  color: var(--accent);
 }
