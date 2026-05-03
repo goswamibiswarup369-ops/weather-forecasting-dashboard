@@ -258,3 +258,11 @@ function init() {
 }
 
 init();
+
+console.log('%c╔══════════════════════════════════════════════════════╗', 'color: #38bdf8; font-weight: bold;');
+console.log('%c║  STRATUS WEATHER DASHBOARD                          ║', 'color: #38bdf8; font-weight: bold;');
+console.log('%c║  Created by: Biswarup Goswami                       ║', 'color: #f5c842; font-weight: bold;');
+console.log('%c║  Location: Dhatrigram, Purba Bardhaman, West Bengal  ║', 'color: #38bdf8;');
+console.log('%c║  © 2026 All Rights Reserved                         ║', 'color: #38bdf8;');
+console.log('%c╚══════════════════════════════════════════════════════╝', 'color: #38bdf8; font-weight: bold;');
+console.log('%c⚠️  Unauthorized copying is prohibited!', 'color: #f87171; font-size: 14px; font-weight: bold;');
